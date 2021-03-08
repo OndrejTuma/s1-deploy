@@ -1,0 +1,23 @@
+{
+  "name": "s1-deploy",
+  "version": "1.0.0",
+  "description": "SiteOne CI deploy made locally",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rootre/s1-deploy.git"
+  },
+  "author": "Ondřej Tůma <tu.ondrej@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rootre/s1-deploy/issues"
+  },
+  "homepage": "https://github.com/Rootre/s1-deploy#readme",
+  "dependencies": {
+    "inquirer": "^8.0.0",
+    "simple-git": "^2.36.1"
+  }
+}
