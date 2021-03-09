@@ -2,6 +2,7 @@ const simpleGit = require('simple-git')
 const inquirer = require('inquirer')
 
 const deployFeature = require('./deployFeature.js')
+const deployStaging = require('./deployStaging.js')
 
 const workingDir = process.argv[2] || './'
 
@@ -34,6 +35,9 @@ async function run() {
     switch (deployType) {
       case DEPLOY_TYPES.FEATURE:
         deployFeature(workingDir)
+        break;
+      case DEPLOY_TYPES.STAGING:
+        deployStaging(workingDir)
         break;
     }
   } catch (e) {
