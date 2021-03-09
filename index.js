@@ -8,7 +8,6 @@ const workingDir = process.argv[2] || './'
 
 const DEPLOY_TYPES = {
   FEATURE: 'FEATURE',
-  BETA: 'BETA',
   STAGING: 'STAGING',
   PRODUCTION: 'PRODUCTION',
 }
@@ -21,7 +20,6 @@ const typesOfDeploy = {
   message: 'Type of Deploy?',
   choices: [
     { name: 'Feature branch', value: DEPLOY_TYPES.FEATURE },
-    { name: 'Beta', value: DEPLOY_TYPES.BETA },
     { name: 'Staging', value: DEPLOY_TYPES.STAGING },
     { name: 'Production', value: DEPLOY_TYPES.PRODUCTION },
   ]
