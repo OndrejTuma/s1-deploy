@@ -38,11 +38,15 @@ async function run(workingDir) {
     // if tag exists, remove it
     if (allTags.includes(tagName)) {
       await git.tag(['-d', tagName])
+      console.log('Removed local tag:', tagName)
       await git.push(['--delete', 'origin', tagName])
+      console.log('Removed tag from origin:', tagName)
     }
 
     await git.addTag(tagName)
+    console.log('Created tag:', tagName)
     await git.push(['origin', tagName])
+    console.log('Tag pushed to origin')
 
     console.log('DONE')
   } catch (e) {

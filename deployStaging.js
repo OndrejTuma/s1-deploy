@@ -35,7 +35,9 @@ async function run(workingDir) {
     }
 
     await git.addTag(tagName)
+    console.log('Created tag:', tagName)
     await git.push(['origin', tagName])
+    console.log('Tag pushed to origin')
 
     console.log('DONE')
   } catch (e) {
