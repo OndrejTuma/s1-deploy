@@ -7,6 +7,7 @@ const deployStaging = require('./deployStaging.js')
 const deployProduction = require('./deployProduction.js')
 
 const workingDir = process.argv[2] || './'
+const defaultDeployType = process.argv[3] || ''
 
 const DEPLOY_TYPES = {
   FEATURE: 'FEATURE',
@@ -14,8 +15,6 @@ const DEPLOY_TYPES = {
   STAGING: 'STAGING',
   PRODUCTION: 'PRODUCTION',
 }
-
-const git = simpleGit(workingDir)
 
 const typesOfDeploy = {
   type: 'list',
@@ -32,7 +31,13 @@ const typesOfDeploy = {
 async function run() {
   try {
     const prompt = inquirer.createPromptModule()
-    const { deployType } = await prompt(typesOfDeploy)
+
+    let deployType = defaultDeployType
+
+    if (!deployType) {
+      const result = await prompt(typesOfDeploy)
+      deployType = result.deployType
+    }
 
     switch (deployType) {
       case DEPLOY_TYPES.FEATURE:
