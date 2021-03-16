@@ -43,6 +43,7 @@ async function run() {
         break;
       case DEPLOY_TYPES.STAGING:
         deployStaging(workingDir)
+        break;
       case DEPLOY_TYPES.PRODUCTION:
         deployProduction(workingDir)
         break;
