@@ -7,7 +7,7 @@ async function run(workingDir) {
     const { current: currentBranch } = await git.branchLocal()
 
     if (currentBranch !== 'staging') {
-      console.error('There is no staging branch')
+      console.error('You\'re not on staging branch')
 
       return
     }
