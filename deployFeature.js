@@ -32,7 +32,12 @@ async function run(workingDir) {
       return
     }
 
-    const tagName = `preview-feature-rm${rmNumber}-${branchName}`
+    const { tagName } = await prompt({
+      type: 'input',
+      name: 'tagName',
+      message: 'Tag name',
+      default: `preview-feature-rm${rmNumber}-${branchName}`,
+    })
 
     const { all: allTags } = await git.tags()
 
