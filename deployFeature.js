@@ -24,6 +24,7 @@ async function run(workingDir) {
     })
 
     const rmNumber = parseRMTaskNumber(branch)
+    const branchName = branch.split('/').pop()
 
     if (!rmNumber) {
       console.error(`${branch} branch does not include a Redmine task number`)
@@ -31,7 +32,7 @@ async function run(workingDir) {
       return
     }
 
-    const tagName = `preview-feature-rm${rmNumber}`
+    const tagName = `preview-feature-rm${rmNumber}-${branchName}`
 
     const { all: allTags } = await git.tags()
 
